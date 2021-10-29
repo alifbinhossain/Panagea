@@ -1,26 +1,42 @@
 import React from "react";
 import "./Tour.css";
 import { Card } from "react-bootstrap";
-import { AiTwotoneFire } from "react-icons/ai";
 import Rating from "react-rating";
 
 const Tour = ({ tour }) => {
   const { img, name, description, category, price, duration, rating, reviews } =
     tour;
 
-  console.log(price, duration);
   return (
     <Card className="tour">
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title className="title d-flex justify-content-between align-items-center">
           {name}
-          <span className="popular-box">
-            {category} <i class="fas fa-fire"></i>
-          </span>
+          {category === "popular" && (
+            <span className="popular-box">
+              {category} <i className="fas fa-fire"></i>
+            </span>
+          )}
+          {category === "adventure" && (
+            <span className="adventure-box">
+              {category} <i class="fas fa-biohazard"></i>
+            </span>
+          )}
+          {category === "explore" && (
+            <span className="explore-box">
+              {category} <i class="fas fa-dove"></i>
+            </span>
+          )}
         </Card.Title>
-        <Card.Text className="description">
+        <Card.Text className="description mt-3">
           {description.slice(0, 150)}..
+          <h6 className="tour-price">
+            Starting from :{" "}
+            <span>
+              ${price} / {duration} day
+            </span>
+          </h6>
           <div className="review-box mt-2 ">
             <button className="btn-book">Book Now</button>
             <div className="total-reviews">
@@ -31,8 +47,9 @@ const Tour = ({ tour }) => {
                 emptySymbol="far fa-star"
                 fullSymbol="fas fa-star"
               />
+
               <span className="total">
-                <i class="fas fa-users"></i> {reviews}
+                <i className="fas fa-users"></i> {reviews}
               </span>
             </div>
           </div>

@@ -7,12 +7,14 @@
   background-position: center;
   background-attachment: fixed;
 }
-.popular-tours h1 {
+.popular-tours h1,
+.tours h1 {
   font-family: "Kristi", cursive;
   font-weight: 500;
   font-size: 80px;
   color: #fc5b62;
   margin-bottom: 1.5rem;
+  letter-spacing: 2px;
 }
 
 .price {

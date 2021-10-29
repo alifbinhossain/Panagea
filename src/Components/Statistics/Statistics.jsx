@@ -37,7 +37,7 @@ const Statistics = () => {
         <li className="statistics-item">
           <GiLaurelsTrophy className="icon" />
           <h4>
-            <Count end="125" suffix=" "></Count>
+            <Count end="125"></Count>
           </h4>
           <p>National Award</p>
         </li>

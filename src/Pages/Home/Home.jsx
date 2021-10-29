@@ -9,14 +9,20 @@ import { Col, Row } from "react-bootstrap";
 import Tour from "../../Components/Tour/Tour";
 import Statistics from "../../Components/Statistics/Statistics";
 import TopReviews from "../../Components/TopReviews/TopReviews";
+import { PuffLoader } from "react-spinners";
 
 const Home = () => {
   const [tours, setTours] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/home/tours")
-      .then((data) => setTours(data.data));
+    setLoading(true);
+    setTimeout(() => {
+      axios.get("http://localhost:5000/home/tours").then((data) => {
+        setTours(data.data);
+        setLoading(false);
+      });
+    }, 1500);
   }, []);
 
   return (
@@ -25,15 +31,21 @@ const Home = () => {
 
       <section className="popular-tours">
         <h1 className="text-center">Our Popular Tours</h1>
-        <div className="container">
-          <Row xs={1} md={2} lg={3} className=" g-5">
-            {tours.map((tour) => (
-              <Col key={tour._id}>
-                <Tour tour={tour}></Tour>
-              </Col>
-            ))}
-          </Row>
-        </div>
+        {loading ? (
+          <div className="spinner-box">
+            <PuffLoader color="#fc5b62" />
+          </div>
+        ) : (
+          <div className="container">
+            <Row xs={1} md={2} lg={3} className=" g-5">
+              {tours.map((tour) => (
+                <Col key={tour._id}>
+                  <Tour tour={tour}></Tour>
+                </Col>
+              ))}
+            </Row>
+          </div>
+        )}
       </section>
       <TopReviews></TopReviews>
       <Statistics></Statistics>

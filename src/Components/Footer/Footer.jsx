@@ -21,17 +21,17 @@ const Footer = () => {
             Follow Us{" "}
             <span className="ms-3">
               <a href="/">
-                <i class="footer-social-icon fab fa-facebook-f"></i>
+                <i className="footer-social-icon fab fa-facebook-f"></i>
               </a>
               <a href="/">
-                <i class="footer-social-icon fab fa-instagram"></i>
+                <i className="footer-social-icon fab fa-instagram"></i>
               </a>
 
               <a href="/">
-                <i class="footer-social-icon fab fa-twitter"></i>
+                <i className="footer-social-icon fab fa-twitter"></i>
               </a>
               <a href="/">
-                <i class="footer-social-icon fab fa-pinterest"></i>
+                <i className="footer-social-icon fab fa-pinterest"></i>
               </a>
             </span>
           </p>
@@ -46,10 +46,10 @@ const Footer = () => {
         <li className="footer-item footer-item-contact">
           <h4>Contact With Us</h4>
           <span>
-            <i class="fas fa-mobile-alt"></i> +8801660141086
+            <i className="fas fa-mobile-alt"></i> +8801660141086
           </span>
           <span>
-            <i class="fas fa-envelope"></i> alifahmed47@gmail.com
+            <i className="fas fa-envelope"></i> alifahmed47@gmail.com
           </span>
 
           <InputGroup className="input-group">

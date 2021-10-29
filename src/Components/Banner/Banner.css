@@ -1,10 +1,11 @@
 .carousel-item {
   min-height: 90vh;
-  background-size: cover;
-  background-position: center;
   background-attachment: fixed;
   display: flex !important;
   align-items: center;
+  background-size: 120% 120%;
+  background-position: center center;
+  animation: animatedBackground 5s infinite alternate;
 }
 
 .carousel-item--1 {
@@ -49,4 +50,13 @@
 .btn-book:active {
   transform: scale(0.98);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes animatedBackground {
+  0% {
+    background-size: 120% 120%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
 }
