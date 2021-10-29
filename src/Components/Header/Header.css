@@ -1,0 +1,10 @@
+.header {
+}
+.navbar {
+  min-height: 10vh;
+}
+
+.navbar-brand img {
+  width: 8rem;
+  object-fit: cover;
+}

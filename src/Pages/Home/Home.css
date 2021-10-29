@@ -1,0 +1,19 @@
+.home {
+  min-height: 400vh;
+}
+.popular-tours {
+  padding: 3rem 0;
+}
+.popular-tours h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 500;
+  background-color: violet;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}

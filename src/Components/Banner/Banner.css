@@ -1,0 +1,45 @@
+.carousel-item {
+  min-height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex !important;
+  align-items: center;
+}
+
+.carousel-item--1 {
+  background-image: url(../../assets/images/slider/slide_1-1.jpg);
+}
+.carousel-item--2 {
+  background-image: url(../../assets/images/slider/slide_2-1.jpg);
+}
+.carousel-item--3 {
+  background-image: url(../../assets/images/slider/slide_3-1.jpg);
+}
+
+.carousel-content {
+  color: #fff;
+  margin-left: 10%;
+}
+.carousel-content h1 {
+  font-size: 60px;
+  width: 70%;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.carousel-content p {
+  letter-spacing: 1px;
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+}
+
+.btn-book {
+  display: inline-block;
+  border: none;
+  background-color: #fc5b62;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 4px;
+}
