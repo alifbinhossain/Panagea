@@ -1,12 +1,18 @@
 .home {
-  min-height: 400vh;
 }
 .popular-tours {
-  padding: 3rem 0;
+  padding: 2rem 0 6rem;
+  background-image: url(../../assets/images/others/h1-background-2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 .popular-tours h1 {
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
+  font-family: "Kristi", cursive;
+  font-weight: 500;
+  font-size: 80px;
+  color: #fc5b62;
+  margin-bottom: 1.5rem;
 }
 
 .price {

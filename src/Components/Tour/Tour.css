@@ -26,3 +26,23 @@
   border-radius: 100px;
   font-weight: 600;
 }
+
+.review-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-reviews > * {
+  display: block;
+}
+
+.total-reviews .total {
+  margin-top: 10px;
+  color: #ff4a60;
+  text-align: right;
+}
+
+.star {
+  color: #f7c04d;
+}

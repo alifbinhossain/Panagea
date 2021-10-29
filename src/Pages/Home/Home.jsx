@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Col, Row } from "react-bootstrap";
 import Tour from "../../Components/Tour/Tour";
+import Statistics from "../../Components/Statistics/Statistics";
+import TopReviews from "../../Components/TopReviews/TopReviews";
 
 const Home = () => {
   const [tours, setTours] = useState([]);
@@ -17,22 +19,24 @@ const Home = () => {
       .then((data) => setTours(data.data));
   }, []);
 
-  console.log(tours);
-
   return (
     <div className="home">
       <Banner></Banner>
 
-      <section className="popular-tours container">
-        <h1 className="text-center mb-3">Our Popular Tours</h1>
-        <Row xs={1} md={2} lg={3} className=" g-5">
-          {tours.map((tour) => (
-            <Col key={tour._id}>
-              <Tour tour={tour}></Tour>
-            </Col>
-          ))}
-        </Row>
+      <section className="popular-tours">
+        <h1 className="text-center">Our Popular Tours</h1>
+        <div className="container">
+          <Row xs={1} md={2} lg={3} className=" g-5">
+            {tours.map((tour) => (
+              <Col key={tour._id}>
+                <Tour tour={tour}></Tour>
+              </Col>
+            ))}
+          </Row>
+        </div>
       </section>
+      <TopReviews></TopReviews>
+      <Statistics></Statistics>
     </div>
   );
 };

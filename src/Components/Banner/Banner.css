@@ -42,4 +42,11 @@
   font-size: 18px;
   padding: 12px 24px;
   border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.btn-book:active {
+  transform: scale(0.98);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
