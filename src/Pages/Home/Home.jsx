@@ -37,7 +37,7 @@ const Home = () => {
           </div>
         ) : (
           <div className="container">
-            <Row xs={1} md={2} lg={3} className=" g-5">
+            <Row xs={1} md={2} lg={3} className="g-lg-5 g-4">
               {tours.map((tour) => (
                 <Col key={tour._id}>
                   <Tour tour={tour}></Tour>

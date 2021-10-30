@@ -8,3 +8,8 @@
   width: 8rem;
   object-fit: cover;
 }
+
+.btn-signout {
+  background-color: transparent;
+  border: none;
+}

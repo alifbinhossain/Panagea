@@ -65,7 +65,7 @@ const Footer = () => {
       <hr />
 
       <ul className="footer-bottom-list">
-        <li className="footer-bottom-list--item">
+        <li className="footer-bottom-list--item mb-3 mb-lg-0">
           <img src={cards} alt="" />
         </li>
         <li className="footer-bottom-list--item">

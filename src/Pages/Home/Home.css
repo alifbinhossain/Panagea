@@ -8,7 +8,8 @@
   background-attachment: fixed;
 }
 .popular-tours h1,
-.tours h1 {
+.tours h1,
+.booking h1 {
   font-family: "Kristi", cursive;
   font-weight: 500;
   font-size: 80px;
@@ -17,11 +18,15 @@
   letter-spacing: 2px;
 }
 
-.price {
-  font-size: 18px;
-  font-weight: 500;
-  background-color: violet;
-  padding: 5px;
-  display: flex;
-  align-items: center;
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .popular-tours {
+    padding: 2rem 0 2rem;
+  }
+  .popular-tours h1,
+  .tours h1 {
+    font-size: 60px;
+  }
 }

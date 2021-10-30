@@ -6,7 +6,7 @@
     "price": 200,
     "duration": 3,
     "status": "pending",
-    "rating": 8.6,
+    "rating": 4.6,
     "reviews": 5,
     "category": "popular"
   },
@@ -17,7 +17,7 @@
     "price": 300,
     "duration": 5,
     "status": "pending",
-    "rating": 7.5,
+    "rating": 4.1,
     "reviews": 10,
     "category": "explore"
   },
@@ -28,7 +28,7 @@
     "price": 350,
     "duration": 2,
     "status": "pending",
-    "rating": 8,
+    "rating": 4.3,
     "reviews": 12,
     "category": "popular"
   },
@@ -39,7 +39,7 @@
     "price": 550,
     "duration": 3,
     "status": "pending",
-    "rating": 7.2,
+    "rating": 4,
     "reviews": 23,
     "category": "adventure"
   },
@@ -50,7 +50,7 @@
     "price": 450,
     "duration": 2,
     "status": "pending",
-    "rating": 8.7,
+    "rating": 3.7,
     "reviews": 9,
     "category": "explore"
   },
@@ -61,7 +61,7 @@
     "price": 600,
     "duration": 5,
     "status": "pending",
-    "rating": 8.3,
+    "rating": 4.2,
     "reviews": 27,
     "category": "explore"
   },
@@ -72,7 +72,7 @@
     "price": 600,
     "duration": 2,
     "status": "pending",
-    "rating": 6.5,
+    "rating": 3.3,
     "reviews": 8,
     "category": "adventure"
   },
@@ -83,7 +83,7 @@
     "price": 750,
     "duration": 5,
     "status": "pending",
-    "rating": 6.9,
+    "rating": 4.8,
     "reviews": 14,
     "category": "popular"
   },
@@ -94,7 +94,7 @@
     "price": 280,
     "duration": 3,
     "status": "pending",
-    "rating": 8.1,
+    "rating": 4.6,
     "reviews": 18,
     "category": "popular"
   },
@@ -105,7 +105,7 @@
     "price": 300,
     "duration": 2,
     "status": "pending",
-    "rating": 7.4,
+    "rating": 3.9,
     "reviews": 12,
     "category": "explore"
   },
@@ -116,7 +116,7 @@
     "price": 380,
     "duration": 3,
     "status": "pending",
-    "rating": 6.6,
+    "rating": 3.8,
     "reviews": 7,
     "category": "explore"
   },
@@ -127,7 +127,7 @@
     "price": 450,
     "duration": 3,
     "status": "pending",
-    "rating": 8,
+    "rating": 4.4,
     "reviews": 9,
     "category": "popular"
   }

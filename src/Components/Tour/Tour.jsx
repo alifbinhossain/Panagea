@@ -2,11 +2,27 @@ import React from "react";
 import "./Tour.css";
 import { Card } from "react-bootstrap";
 import Rating from "react-rating";
+import { useHistory } from "react-router";
 
 const Tour = ({ tour }) => {
-  const { img, name, description, category, price, duration, rating, reviews } =
-    tour;
+  const {
+    img,
+    name,
+    description,
+    category,
+    price,
+    duration,
+    rating,
+    reviews,
+    _id,
+  } = tour;
 
+  const history = useHistory();
+  const url = `/tour/booking/${_id}`;
+
+  const handleGoToBooking = () => {
+    history.push(url);
+  };
   return (
     <Card className="tour">
       <Card.Img variant="top" src={img} />
@@ -38,7 +54,9 @@ const Tour = ({ tour }) => {
             </span>
           </h6>
           <div className="review-box mt-2 ">
-            <button className="btn-book">Book Now</button>
+            <button onClick={handleGoToBooking} className="btn-book">
+              Book Now
+            </button>
             <div className="total-reviews">
               <Rating
                 readonly
