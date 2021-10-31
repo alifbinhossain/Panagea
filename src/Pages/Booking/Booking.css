@@ -11,8 +11,6 @@
   grid-template-columns: 3fr 1fr;
   grid-gap: 30px;
 }
-.booking-tour {
-}
 
 .booking-tour {
   display: flex;
@@ -45,6 +43,7 @@
 .booking-tour--content h2 {
   font-size: 40px;
   font-weight: 700;
+  color: #fc5b62;
 }
 .booking-tour--content h4 {
   font-size: 28px;
@@ -55,7 +54,7 @@
 }
 
 .tour-description {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -99,4 +98,53 @@
   font-size: 12px;
   font-weight: 600;
   color: #fc5b62;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .booking {
+    padding: 1rem;
+  }
+
+  .booking-content {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-tour {
+    flex-direction: column;
+  }
+
+  .booking-tour--image {
+    align-self: start;
+    width: 100%;
+  }
+
+  .booking-tour--content {
+    width: 100%;
+    margin: 5% 0 0;
+  }
+
+  .booking-tour--content h2 {
+    font-size: 32px;
+  }
+  .booking-tour--content h4 {
+    font-size: 24px;
+  }
+
+  .tour-description {
+    font-size: 18px;
+  }
+
+  /* ------------------------------ BOOKING FORM ------------------------------ */
+  .booking-form {
+    margin: 0;
+  }
+  .booking-form h3 {
+    text-align: center;
+  }
+  .booking-form input {
+    width: 100%;
+  }
 }

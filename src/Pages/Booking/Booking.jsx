@@ -16,7 +16,8 @@ const Booking = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:5000/tour/${id}`)
-      .then((data) => setTour(data.data));
+      .then((data) => setTour(data.data))
+      .catch((err) => err.message);
   }, []);
 
   const {
@@ -32,6 +33,7 @@ const Booking = () => {
       email: data.email,
       address: data.address,
       date: data.date,
+      status: "pending",
       tour: tour,
     };
 
@@ -61,7 +63,7 @@ const Booking = () => {
                   <span>${tour.price} </span>/ per person
                 </h4>
                 <p>
-                  <i class="fas fa-clock icon-pink me-2"></i>
+                  <i className="fas fa-clock icon-pink me-2"></i>
                   <span>
                     {tour.duration} Days {tour.duration - 1} Nights
                   </span>
@@ -76,7 +78,7 @@ const Booking = () => {
                   />
                   <span>
                     ( {tour.reviews} Reviews{" "}
-                    <i class="mx-1 fas fa-user icon-pink"></i> )
+                    <i className="mx-1 fas fa-user icon-pink"></i> )
                   </span>
                 </p>
 

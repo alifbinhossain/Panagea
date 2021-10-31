@@ -19,6 +19,7 @@ initAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const auth = getAuth();
 
@@ -44,13 +45,15 @@ const useFirebase = () => {
   /*                             CREATE NEW ACCOUNT                             */
   /* -------------------------------------------------------------------------- */
   const createNewAccount = (email, password, name) => {
+    setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         updateUserInfo(name);
         setUser(result.user);
-        console.log(user);
       })
       .catch((err) => {});
+
+    setLoading(false);
   };
 
   /* -------------------------------------------------------------------------- */
@@ -80,11 +83,14 @@ const useFirebase = () => {
   /* -------------------------------------------------------------------------- */
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
+      setLoading(true);
       if (user) {
         setUser(user);
       } else {
         setUser(null);
       }
+
+      setLoading(false);
     });
 
     return () => unsubscribed;
@@ -92,6 +98,8 @@ const useFirebase = () => {
 
   return {
     user,
+    loading,
+    setLoading,
     createNewAccount,
     signInWithEmail,
     signInWithSocial,

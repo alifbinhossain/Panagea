@@ -36,12 +36,12 @@ const Tour = ({ tour }) => {
           )}
           {category === "adventure" && (
             <span className="adventure-box">
-              {category} <i class="fas fa-biohazard"></i>
+              {category} <i className="fas fa-biohazard"></i>
             </span>
           )}
           {category === "explore" && (
             <span className="explore-box">
-              {category} <i class="fas fa-dove"></i>
+              {category} <i className="fas fa-dove"></i>
             </span>
           )}
         </Card.Title>

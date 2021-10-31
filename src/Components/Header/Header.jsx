@@ -1,8 +1,8 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../assets/images/logo/logo_sticky_2x.png";
-import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import useAll from "../../hooks/useAll";
 
 const Header = () => {
@@ -11,9 +11,17 @@ const Header = () => {
   const activeStyle = {
     color: "#fc5b62",
     fontWeight: "600",
+    backgroundColor: "transparent",
   };
 
-  const title = <i class="fas fa-user"></i>;
+  let userName;
+
+  if (user?.displayName === "Admin") {
+    userName = "";
+  } else {
+    userName = user?.displayName;
+  }
+
   return (
     <header className="header">
       <Navbar bg="light" expand="lg">
@@ -33,20 +41,24 @@ const Header = () => {
 
               {user ? (
                 <>
-                  <NavDropdown title={title} id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.2">
-                      {user.displayName}
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>My Orders</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Manage All Orders
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.4">
-                      Add a New Service
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                  <Nav.Link
+                    activeStyle={activeStyle}
+                    as={NavLink}
+                    to="/my_orders"
+                  >
+                    My Orders
+                  </Nav.Link>
+                  <Nav.Link activeStyle={activeStyle} as={NavLink} to="/admin">
+                    Admin
+                  </Nav.Link>
+
+                  <Nav.Link>
+                    {" "}
+                    <i className="fas fa-user me-2"></i>{" "}
+                    {userName.split(" ")[0]}
+                  </Nav.Link>
                   <button className="btn-signout" onClick={logOut}>
-                    <i class="fas fa-sign-out-alt"></i> Sign Out
+                    <i className="fas fa-sign-out-alt"></i> Sign Out
                   </button>
                 </>
               ) : (
@@ -55,7 +67,7 @@ const Header = () => {
                   as={NavLink}
                   to="/form/signin"
                 >
-                  Sign In <i class="fas fa-sign-in-alt"></i>
+                  Sign In <i className="fas fa-sign-in-alt"></i>
                 </Nav.Link>
               )}
             </Nav>

@@ -3,9 +3,11 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useAll from "../../../hooks/useAll";
+import { useHistory, useLocation } from "react-router";
 
 const Signin = () => {
   const {
+    setLoading,
     signInWithEmail,
     signInWithSocial,
     facebookProvider,
@@ -20,12 +22,17 @@ const Signin = () => {
     handleSubmit,
   } = useForm();
 
+  const history = useHistory();
+  const location = useLocation();
+  const redirectUrl = location.state?.from || "/home";
+
   const onSubmit = (data) => {
     const userEmail = data.email;
     const userPassword = data.password;
     signInWithEmail(userEmail, userPassword)
       .then((result) => {
         reset();
+        history.push(redirectUrl);
       })
       .catch((err) => {
         console.log(err.message);
@@ -34,12 +41,10 @@ const Signin = () => {
 
   const handleSignInWithSocial = (provider) => {
     signInWithSocial(provider)
-      .then((res) => console.log(res.user))
+      .then((res) => {
+        history.push(redirectUrl);
+      })
       .catch((err) => console.log(err.message));
-  };
-
-  const handleSignInWithEmail = () => {
-    signInWithEmail();
   };
 
   return (
@@ -87,19 +92,19 @@ const Signin = () => {
           className="btn-social"
           onClick={() => handleSignInWithSocial(googleProvider)}
         >
-          <i class="fab fa-google"></i>
+          <i className="fab fa-google"></i>
         </button>
         <button
           className="btn-social"
           onClick={() => handleSignInWithSocial(facebookProvider)}
         >
-          <i class="fab fa-facebook"></i>
+          <i className="fab fa-facebook"></i>
         </button>
         <button
           className="btn-social"
           onClick={() => handleSignInWithSocial(twitterProvider)}
         >
-          <i class="fab fa-twitter"></i>
+          <i className="fab fa-twitter"></i>
         </button>
       </div>
 
