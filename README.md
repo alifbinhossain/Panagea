@@ -1,6 +1,8 @@
 # PANAGEA TRAVEL AGENCY 🪂 <h1>
 
-## Project Overview
+[Click here to visit the site](https://assignment-11-fdaa8.web.app/)
+
+### Project Overview
 
 - This is a website about **Travel Agency**.
 - You can book your favorite trip through our website.
@@ -8,5 +10,4 @@
 - Currently, our admin Panel is available to anyone.
 - Anyone can see all the orders & add new tour package.
 - Get access to the admin panel you have to login with email: admin@gmail.com,password: Admin@123.
-- [Live Site](https://assignment-11-fdaa8.web.app/)
 - Visit & Enjoy 😉
