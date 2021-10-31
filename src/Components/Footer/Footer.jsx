@@ -11,10 +11,10 @@ const Footer = () => {
         <li className="footer-item">
           <img src={logo} alt="" />
           <p className="my-3">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-            velit delectus tempora consequatur debitis quasi molestiae
-            repellendus, obcaecati dolores, cum cupiditate totam officia tempore
-            et?
+            Panagea was established in 1982, one of Bangladesh’s oldest travel
+            agencies. We emphasize creativity, cost-efficiency, and excellence
+            in designing, planning, and implementing outstanding group & FIT
+            travel, corporate meetings, incentives, and special events.
           </p>
 
           <p className="footer-social">

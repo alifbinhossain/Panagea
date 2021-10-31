@@ -32,10 +32,11 @@ const TopReviews = () => {
                 <AiFillStar />
               </span>
               <p className="mt-5">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Adipisci delectus repudiandae deserunt suscipit amet quibusdam
-                iusto fugiat! Maiores, expedita voluptatibus? Vitae est unde
-                perferendis aut illo. Eaque ipsa expedita velit.
+                I went to Rome last December for three weeks with my family.
+                After arriving in Rome we met with the owner of PANAGEA. We had
+                lots of exciting times during our stay in Rome. Their service is
+                good and they are well experienced in tourism all over the
+                world.
               </p>
 
               <div className="happy-customer-name my-3">Hert Coney</div>
@@ -53,10 +54,9 @@ const TopReviews = () => {
                 <AiFillStar />
               </span>
               <p className="mt-5">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Adipisci delectus repudiandae deserunt suscipit amet quibusdam
-                iusto fugiat! Maiores, expedita voluptatibus? Vitae est unde
-                perferendis aut illo. Eaque ipsa expedita velit.
+                I recommended the service of Adventure A++. All the arrangements
+                were excellent and service was really great. The staffs were
+                very professionals and their arrangement was Superb.
               </p>
 
               <div className="happy-customer-name my-3">Karin thomas</div>
@@ -74,10 +74,10 @@ const TopReviews = () => {
                 <AiFillStar />
               </span>
               <p className="mt-5">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Adipisci delectus repudiandae deserunt suscipit amet quibusdam
-                iusto fugiat! Maiores, expedita voluptatibus? Vitae est unde
-                perferendis aut illo. Eaque ipsa expedita velit.
+                I would like to say thanks to PANAGEA for making my Bandarban
+                trip so memorable. It was my first experience of booking my tour
+                through any tour operator in Bangladesh.I would recommend this
+                company to my friends for booking any of their tour in future.
               </p>
 
               <div className="happy-customer-name my-3">Roman Paolera</div>
