@@ -7,6 +7,7 @@
 
 .admin-login {
   padding: 2rem 4rem;
+  color: #fc5b62;
 }
 
 .admin-login img {
@@ -14,17 +15,40 @@
 }
 
 .admin-login h2 {
-  font-size: 32px;
-  line-height: 1.5;
-}
-
-.admin-login h2 .big {
   font-size: 48px;
   font-weight: 400;
   width: 100%;
-  color: #fc5b62;
+  line-height: 1.5;
 }
 
-.admin-login h2 span {
-  font-weight: 600;
+.admin-login p {
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .admin {
+    min-height: 80vh;
+  }
+  .admin-login {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .admin-login img {
+    width: 100%;
+  }
+
+  .admin-login h2 {
+    font-size: 32px;
+    line-height: 1.5;
+  }
+
+  .admin-login p {
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
 }

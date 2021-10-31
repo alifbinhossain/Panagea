@@ -16,17 +16,20 @@ const Admin = () => {
       {email === "admin@gmail.com" ? (
         <AdminPanel></AdminPanel>
       ) : (
-        <div className="admin-login d-flex align-items-center">
+        <div className="admin-login d-lg-flex align-items-center">
           <img src={img} alt="" />
-          <h2>
-            <span className="big d-block ">
-              {" "}
-              <i className="fas fa-key"></i> Get access to the admin
-              panel,please login with{" "}
-            </span>{" "}
-            <br /> email :<span> admin@gmail.com</span> <br />
-            password :<span> Admin@123</span>
-          </h2>
+          <div>
+            <h2 className="mb-3">
+              Get access to the admin panel,please login with
+            </h2>
+
+            <p>
+              <i class="fas fa-envelope-open me-2"></i> admin@gmail.com
+            </p>
+            <p>
+              <i className="fas fa-key me-2"></i> Admin@123
+            </p>
+          </div>
         </div>
       )}
     </section>

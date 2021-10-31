@@ -25,8 +25,11 @@ const AddNewTour = () => {
     };
 
     axios
-      .post("http://localhost:5000/tours", newTour)
-      .then((data) => console.log(data.data));
+      .post("https://shrieking-corpse-81438.herokuapp.com/tours", newTour)
+      .then((data) => {
+        console.log(data.data);
+        const isAdded = data.data;
+      });
   };
   return (
     <section className="add-new-tour">

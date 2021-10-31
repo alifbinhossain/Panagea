@@ -8,7 +8,7 @@ const AllOrders = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/all_orders")
+      .get("https://shrieking-corpse-81438.herokuapp.com/all_orders")
       .then((data) => setAllOrders(data.data));
   }, []);
 
@@ -18,16 +18,20 @@ const AllOrders = () => {
     );
 
     if (proceed) {
-      axios.delete(`http://localhost:5000/my_order_list/${id}`).then((data) => {
-        console.log(data);
-        const isDeleted = data.data.deletedCount;
+      axios
+        .delete(
+          `https://shrieking-corpse-81438.herokuapp.com/my_order_list/${id}`
+        )
+        .then((data) => {
+          console.log(data);
+          const isDeleted = data.data.deletedCount;
 
-        if (isDeleted) {
-          alert("Successfully removed this order");
-          const remaining = allOrders.filter((order) => order._id !== id);
-          setAllOrders(remaining);
-        }
-      });
+          if (isDeleted) {
+            alert("Successfully removed this order");
+            const remaining = allOrders.filter((order) => order._id !== id);
+            setAllOrders(remaining);
+          }
+        });
     }
   };
 

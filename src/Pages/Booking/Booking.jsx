@@ -15,7 +15,7 @@ const Booking = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/tour/${id}`)
+      .get(`https://shrieking-corpse-81438.herokuapp.com/tour/${id}`)
       .then((data) => setTour(data.data))
       .catch((err) => err.message);
   }, []);
@@ -37,13 +37,18 @@ const Booking = () => {
       tour: tour,
     };
 
-    axios.post("http://localhost:5000/tour/booking", orderInfo).then((data) => {
-      const isPlaced = data.data.insertedId;
-      if (isPlaced) {
-        alert(`You’re booked! Pack your bags – see you soon..`);
-        reset();
-      }
-    });
+    axios
+      .post(
+        "https://shrieking-corpse-81438.herokuapp.com/tour/booking",
+        orderInfo
+      )
+      .then((data) => {
+        const isPlaced = data.data.insertedId;
+        if (isPlaced) {
+          alert(`You’re booked! Pack your bags – see you soon..`);
+          reset();
+        }
+      });
 
     console.log(orderInfo);
   };

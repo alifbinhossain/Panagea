@@ -1,5 +1,6 @@
 .tour {
-  min-height: 500px;
+  min-height: 580px;
+  max-height: 580px;
   overflow: hidden;
   position: relative;
   border: none !important;

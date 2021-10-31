@@ -18,10 +18,12 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      axios.get("http://localhost:5000/home/tours").then((data) => {
-        setTours(data.data);
-        setLoading(false);
-      });
+      axios
+        .get("https://shrieking-corpse-81438.herokuapp.com/home/tours")
+        .then((data) => {
+          setTours(data.data);
+          setLoading(false);
+        });
     }, 1500);
   }, []);
 

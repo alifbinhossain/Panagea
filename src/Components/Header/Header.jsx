@@ -41,18 +41,32 @@ const Header = () => {
 
               {user ? (
                 <>
-                  <Nav.Link
-                    activeStyle={activeStyle}
-                    as={NavLink}
-                    to="/my_orders"
-                  >
-                    My Orders
-                  </Nav.Link>
-                  <Nav.Link activeStyle={activeStyle} as={NavLink} to="/admin">
-                    {user?.email === "admin@gmail.com"
-                      ? "Login as Admin"
-                      : "Admin"}
-                  </Nav.Link>
+                  {user?.email === "admin@gmail.com" ? (
+                    <Nav.Link
+                      activeStyle={activeStyle}
+                      as={NavLink}
+                      to="/admin"
+                    >
+                      Login as Admin
+                    </Nav.Link>
+                  ) : (
+                    <>
+                      <Nav.Link
+                        activeStyle={activeStyle}
+                        as={NavLink}
+                        to="/my_orders"
+                      >
+                        My Orders
+                      </Nav.Link>
+                      <Nav.Link
+                        activeStyle={activeStyle}
+                        as={NavLink}
+                        to="/admin"
+                      >
+                        Admin
+                      </Nav.Link>
+                    </>
+                  )}
 
                   <Nav.Link>
                     {" "}

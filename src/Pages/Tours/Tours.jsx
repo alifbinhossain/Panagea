@@ -9,15 +9,17 @@ import { PuffLoader } from "react-spinners";
 
 const Tours = () => {
   const [tours, setTours] = useState([]);
-  const [loading, setLoding] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoding(true);
+    setLoading(true);
     setTimeout(() => {
-      axios.get("http://localhost:5000/tours").then((data) => {
-        setTours(data.data);
-        setLoding(false);
-      });
+      axios
+        .get("https://shrieking-corpse-81438.herokuapp.com/tours")
+        .then((data) => {
+          setTours(data.data);
+          setLoading(false);
+        });
     }, 1500);
   }, []);
   return (

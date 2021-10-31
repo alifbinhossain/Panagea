@@ -10,9 +10,13 @@ const MyOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/my_order/${user?.email}`).then((data) => {
-      setMyOrders(data.data);
-    });
+    axios
+      .get(
+        `https://shrieking-corpse-81438.herokuapp.com/my_order/${user?.email}`
+      )
+      .then((data) => {
+        setMyOrders(data.data);
+      });
   }, []);
 
   const name = myOrders[0]?.name;
@@ -25,16 +29,20 @@ const MyOrders = () => {
     );
 
     if (proceed) {
-      axios.delete(`http://localhost:5000/my_order_list/${id}`).then((data) => {
-        console.log(data);
-        const isDeleted = data.data.deletedCount;
+      axios
+        .delete(
+          `https://shrieking-corpse-81438.herokuapp.com/my_order_list/${id}`
+        )
+        .then((data) => {
+          console.log(data);
+          const isDeleted = data.data.deletedCount;
 
-        if (isDeleted) {
-          alert("Successfully removed this order");
-          const remaining = myOrders.filter((order) => order._id !== id);
-          setMyOrders(remaining);
-        }
-      });
+          if (isDeleted) {
+            alert("Successfully removed this order");
+            const remaining = myOrders.filter((order) => order._id !== id);
+            setMyOrders(remaining);
+          }
+        });
     }
   };
 

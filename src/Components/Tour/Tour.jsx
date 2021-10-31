@@ -24,9 +24,9 @@ const Tour = ({ tour }) => {
     history.push(url);
   };
   return (
-    <Card className="tour">
+    <Card className="tour justify-content-between">
       <Card.Img variant="top" src={img} />
-      <Card.Body>
+      <Card.Body className=" d-flex flex-column justify-content-between">
         <Card.Title className="title d-flex justify-content-between align-items-center">
           {name}
           {category === "popular" && (
@@ -45,7 +45,7 @@ const Tour = ({ tour }) => {
             </span>
           )}
         </Card.Title>
-        <Card.Text className="description mt-3">
+        <Card.Text className="description ">
           {description.slice(0, 150)}..
           <h6 className="tour-price">
             Starting from :{" "}

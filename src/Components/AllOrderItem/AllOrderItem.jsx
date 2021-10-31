@@ -26,13 +26,18 @@ const AllOrderItem = ({ order, index, handleOrderDelete }) => {
       order.status = "pending";
     }
 
-    axios.put(`http://localhost:5000/all_orders/${_id}`, order).then((data) => {
-      const isUpdated = data.data.modifiedCount;
-      if (isUpdated) {
-        alert("Order status updated successfully..");
-        setCurrentStatus(order.status);
-      }
-    });
+    axios
+      .put(
+        `https://shrieking-corpse-81438.herokuapp.com/all_orders/${_id}`,
+        order
+      )
+      .then((data) => {
+        const isUpdated = data.data.modifiedCount;
+        if (isUpdated) {
+          alert("Order status updated successfully..");
+          setCurrentStatus(order.status);
+        }
+      });
   };
 
   return (
