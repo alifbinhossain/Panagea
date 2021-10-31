@@ -21,7 +21,7 @@ const MyOrders = () => {
 
   const handleOrderDelete = (id) => {
     const proceed = window.confirm(
-      "Are you sure? You want to cancel this order!"
+      "Are you sure? You want to remove this order!"
     );
 
     if (proceed) {
@@ -30,7 +30,7 @@ const MyOrders = () => {
         const isDeleted = data.data.deletedCount;
 
         if (isDeleted) {
-          alert("Successfully canceled this tour");
+          alert("Successfully removed this order");
           const remaining = myOrders.filter((order) => order._id !== id);
           setMyOrders(remaining);
         }

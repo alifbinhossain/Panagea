@@ -18,7 +18,8 @@
   font-weight: 600;
 }
 
-.my_orders-list .image-box {
+.my_orders-list .image-box,
+.all-order-item .image-box {
   position: relative;
   width: max-content;
 }

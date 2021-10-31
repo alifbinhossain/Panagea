@@ -2,11 +2,13 @@ import React from "react";
 import "./AdminPanel.css";
 import { Route } from "react-router";
 import { NavLink } from "react-router-dom";
+import AllOrders from "../../Components/AllOrders/AllOrders";
+import AddNewTour from "../../Components/AddNewTour/AddNewTour";
 
 const AdminPanel = () => {
   const activeStyle = {
-    backgroundColor: "#e3e3e3e3",
-    color: "#121921",
+    backgroundColor: "#fff",
+    color: "#fc5b62",
   };
 
   return (
@@ -21,26 +23,26 @@ const AdminPanel = () => {
           className="link"
           to="/admin/admin_panel/manage_all_services"
         >
-          <i className="fas fa-cogs me-2"></i> Manage All Services
+          <i className="fas fa-cogs me-2"></i> Manage All Orders
         </NavLink>
         <NavLink
           activeStyle={activeStyle}
           className="link"
           to="/admin/admin_panel/add_new_services"
         >
-          <i className="fas fa-folder-plus me-2"></i> Add New Services
+          <i className="fas fa-folder-plus me-2"></i> Add New Tour
         </NavLink>
       </aside>
 
       <main className="content">
         <Route exact path="/admin">
-          <h1>This is all service</h1>
+          <AllOrders></AllOrders>
         </Route>
         <Route exact path="/admin/admin_panel/manage_all_services">
-          <h1>This is all service</h1>
+          <AllOrders></AllOrders>
         </Route>
         <Route exact path="/admin/admin_panel/add_new_services">
-          <h1>Add New Services</h1>
+          <AddNewTour></AddNewTour>
         </Route>
       </main>
     </section>

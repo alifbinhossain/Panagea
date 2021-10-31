@@ -36,7 +36,7 @@ const Header = () => {
                 Home
               </Nav.Link>
               <Nav.Link activeStyle={activeStyle} as={NavLink} to="/tours">
-                Tours
+                All Tours
               </Nav.Link>
 
               {user ? (

@@ -6,7 +6,8 @@
   background-position: center;
 }
 
-.user-orders h1 {
+.user-orders h1,
+.all-orders h1 {
   font-family: "Kristi", cursive;
   font-weight: 500;
   font-size: 80px;
