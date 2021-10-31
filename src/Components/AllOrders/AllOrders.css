@@ -6,7 +6,16 @@
   backdrop-filter: blur(5px);
   border-radius: 6px;
   min-height: 100%;
-
   list-style: none;
   margin: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .all-orders,
+  .add-new-tour {
+    padding: 2rem 0.5rem 1rem;
+  }
 }

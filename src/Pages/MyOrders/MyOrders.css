@@ -57,9 +57,12 @@
 @media (max-width: 668px) {
   .my-orders {
     padding: 2rem 1rem;
+    min-height: 80vh;
   }
 
-  .user-orders h1 {
+  .user-orders h1,
+  .all-orders h1,
+  .add-new-tour h1 {
     font-size: 50px;
   }
 

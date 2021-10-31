@@ -31,7 +31,7 @@
 /* -------------------------------------------------------------------------- */
 @media (max-width: 668px) {
   .admin {
-    min-height: 80vh;
+    min-height: 70vh;
   }
   .admin-login {
     padding: 2rem 1rem;

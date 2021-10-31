@@ -3,7 +3,6 @@
 
 .add-new-tour form {
   margin-top: 2rem;
-  /* background-color: violet; */
   min-height: 80%;
   text-align: left;
 }
@@ -20,6 +19,26 @@
   background-color: rgba(255, 255, 255, 0.65);
 }
 
-/* .add-new-tour form input:not(:last-child) {
-  margin-right: 10px;
-} */
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .add-new-tour {
+  }
+
+  .add-new-tour form {
+    margin-top: 1rem;
+  }
+  .add-new-tour form label {
+    color: #000 !important;
+  }
+
+  .add-new-tour form input,
+  .add-new-tour form select,
+  .add-new-tour form textarea {
+    display: block;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.65);
+  }
+}

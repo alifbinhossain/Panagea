@@ -13,7 +13,6 @@
 
 .all-order-item > * {
   display: block;
-  width: max-content;
   /* background-color: chocolate; */
   width: 20%;
 }
@@ -33,4 +32,36 @@
   background-color: transparent;
   border: none;
   width: max-content;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              SHORT MEDIA QUERY                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 668px) {
+  .all-order-item {
+    padding: 1rem;
+    display: block;
+    text-align: center;
+  }
+
+  .all-order-item:not(:last-child) {
+    border-bottom: 1px solid #777777;
+    margin: 0;
+  }
+
+  .all-order-item > * {
+    text-align: center;
+    display: block;
+    margin: 10px auto 15px;
+    /* background-color: chocolate; */
+    width: 100%;
+  }
+  .all-order-item > *:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .all-order-item h5 {
+    width: 100%;
+    text-align: center;
+  }
 }
