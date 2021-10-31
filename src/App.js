@@ -4,6 +4,7 @@ import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import AuthProvider from "./context/AuthProvider";
+import NotFound from "./Pages/404/NotFound";
 import Admin from "./Pages/Admin/Admin";
 import Booking from "./Pages/Booking/Booking";
 import Form from "./Pages/Form/Form";
@@ -20,10 +21,16 @@ function App() {
         <Router>
           <Header></Header>
           <Switch>
+            {/* -------------------------------------------------------------------------- */
+            /*                                 OPEN ROUTES                                */
+            /* -------------------------------------------------------------------------- */}
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/home" component={Home}></Route>
             <Route exact path="/tours" component={Tours}></Route>
 
+            {/* -------------------------------------------------------------------------- */
+            /*                                PRIVATE ROUTE                               */
+            /* -------------------------------------------------------------------------- */}
             <PrivateRoute exact path="/tour/booking/:id">
               <Booking></Booking>
             </PrivateRoute>
@@ -36,16 +43,22 @@ function App() {
               <Admin></Admin>
             </PrivateRoute>
 
+            {/* -------------------------------------------------------------------------- */
+            /*                            AUTHENTICATION ROUTE                            */
+            /* -------------------------------------------------------------------------- */}
             <Route exact path="/form/signin">
               <Form>
                 <SignIn></SignIn>
               </Form>
             </Route>
-
             <Route exact path="/form/signup">
               <Form>
                 <SignUp></SignUp>
               </Form>
+            </Route>
+
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
           <Footer></Footer>
