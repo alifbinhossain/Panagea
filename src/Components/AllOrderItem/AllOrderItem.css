@@ -15,13 +15,14 @@
   display: block;
   width: max-content;
   /* background-color: chocolate; */
+  width: 20%;
 }
 .all-order-item > *:not(:last-child) {
   margin-right: 10px;
 }
 
 .all-order-item h5 {
-  min-width: 22%;
+  min-width: 25%;
   text-align: left;
 }
 

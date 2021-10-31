@@ -49,7 +49,9 @@ const Header = () => {
                     My Orders
                   </Nav.Link>
                   <Nav.Link activeStyle={activeStyle} as={NavLink} to="/admin">
-                    Admin
+                    {user?.email === "admin@gmail.com"
+                      ? "Login as Admin"
+                      : "Admin"}
                   </Nav.Link>
 
                   <Nav.Link>

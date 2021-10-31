@@ -26,6 +26,11 @@
   padding: 5px 10px;
   border-radius: 100px;
   font-weight: 600;
+  width: 120px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .popular-box {
   background-color: #ffd7b6;

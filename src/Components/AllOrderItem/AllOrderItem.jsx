@@ -34,6 +34,7 @@ const AllOrderItem = ({ order, index, handleOrderDelete }) => {
       }
     });
   };
+
   return (
     <li className="all-order-item">
       <h5>
@@ -43,7 +44,7 @@ const AllOrderItem = ({ order, index, handleOrderDelete }) => {
       <p>{email}</p>
       <p>date : {date}</p>
 
-      <p className="d-flex align-items-center">
+      <p className="d-flex align-items-center justify-content-center">
         {currentStatus}
         <Switch
           onChange={handleUpdateStatus}
