@@ -1,8 +1,9 @@
 import React from "react";
 import "./AddNewTour.css";
 import { useForm } from "react-hook-form";
-import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
+import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import axios from "axios";
+import popupSuccess from "../../popup/popupSuccess";
 
 const AddNewTour = () => {
   const {
@@ -10,7 +11,7 @@ const AddNewTour = () => {
     reset,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm(); //import from react hook form
 
   const onSubmit = (data) => {
     const newTour = {
@@ -22,24 +23,27 @@ const AddNewTour = () => {
       rating: Number(data.rating),
       reviews: Number(data.reviews),
       duration: Number(data.duration),
-    };
+    }; //new tour object information
 
     axios
       .post("https://shrieking-corpse-81438.herokuapp.com/tours", newTour)
       .then((data) => {
         const isAdded = data.data.insertedId;
-
         if (isAdded) {
-          alert("Successfully added a new tour..");
+          popupSuccess("new tour");
           reset();
         }
-      });
+      }); //adding new tour on DB & received confirmation response
   };
+
   return (
-    <section className="add-new-tour">
+    <section className="add-new-tour" data-aos="fade-up">
       <h1>Add New Tour</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Row className="mb-3" xs={1} lg={3}>
+          {/* -------------------------------------------------------------------------- */
+          /*                                 TITLE FIELD                                */
+          /* -------------------------------------------------------------------------- */}
           <Form.Group as={Col} controlId="formGridName">
             <FloatingLabel controlId="floatingInput" label="Tour Title">
               <Form.Control
@@ -47,10 +51,15 @@ const AddNewTour = () => {
                 placeholder="title"
                 {...register("name", { required: true })}
               />
-              {errors.name?.type === "required" && "Title is required"}
+              {errors.name?.type === "required" && (
+                <small>Title is required.</small>
+              )}
             </FloatingLabel>
           </Form.Group>
 
+          {/* -------------------------------------------------------------------------- */
+          /*                               IMAGE URL FIELD                              */
+          /* -------------------------------------------------------------------------- */}
           <Form.Group as={Col} controlId="formGridEmail">
             <FloatingLabel controlId="floatingInput" label="Tour Banner Url">
               <Form.Control
@@ -59,9 +68,14 @@ const AddNewTour = () => {
                 {...register("img", { required: true })}
               />
             </FloatingLabel>
-            {errors.img?.type === "required" && "Image url is required"}
+            {errors.img?.type === "required" && (
+              <small>Image is required.</small>
+            )}
           </Form.Group>
 
+          {/* -------------------------------------------------------------------------- */
+          /*                               CATEGORY FIELD                               */
+          /* -------------------------------------------------------------------------- */}
           <Form.Group as={Col} controlId="formGridEmail">
             <FloatingLabel controlId="floatingInput" label="Choose Category">
               <Form.Select
@@ -72,11 +86,16 @@ const AddNewTour = () => {
                 <option value="popular">Popular</option>
                 <option value="adventure">Adventure</option>
               </Form.Select>
-              {errors.category?.type === "required" && "Category is required"}
+              {errors.category?.type === "required" && (
+                <small>Category is required.</small>
+              )}
             </FloatingLabel>
           </Form.Group>
         </Row>
 
+        {/* -------------------------------------------------------------------------- */
+        /*                              DESCRIPTION FIELD                             */
+        /* -------------------------------------------------------------------------- */}
         <Form.Group className="mb-3" controlId="formGridAddress1">
           <FloatingLabel
             controlId="floatingInput"
@@ -87,12 +106,16 @@ const AddNewTour = () => {
               style={{ height: "100px" }}
               {...register("description", { required: true })}
             />
-            {errors.description?.type === "required" &&
-              "Description is required"}
+            {errors.description?.type === "required" && (
+              <small>Description is required.</small>
+            )}
           </FloatingLabel>
         </Form.Group>
 
         <Row className="mb-3" xs={2} lg={4}>
+          {/* -------------------------------------------------------------------------- */
+          /*                                 PRICE FIELD                                */
+          /* -------------------------------------------------------------------------- */}
           <Form.Group as={Col} controlId="formGridEmail">
             <FloatingLabel controlId="floatingInput" label="Prices">
               <Form.Select
@@ -110,8 +133,14 @@ const AddNewTour = () => {
                 <option value="600">600</option>
                 <option value="650">650</option>
               </Form.Select>
-              {errors.price?.type === "required" && "Price is required"}
+              {errors.price?.type === "required" && (
+                <small>Price is required.</small>
+              )}
             </FloatingLabel>
+
+            {/* -------------------------------------------------------------------------- */
+            /*                                PACKAGE FIELD                               */
+            /* -------------------------------------------------------------------------- */}
           </Form.Group>
           <Form.Group as={Col} controlId="formGridEmail">
             <FloatingLabel controlId="floatingInput" label="Choose Package">
@@ -123,9 +152,15 @@ const AddNewTour = () => {
                 <option value="3">3 Days 2 Night</option>
                 <option value="5">5 Days 4 Night</option>
               </Form.Select>
-              {errors.duration?.type === "required" && "Package is required"}
+              {errors.duration?.type === "required" && (
+                <small>Package is required.</small>
+              )}
             </FloatingLabel>
           </Form.Group>
+
+          {/* -------------------------------------------------------------------------- */
+          /*                                RATING FIELD                                */
+          /* -------------------------------------------------------------------------- */}
           <Form.Group as={Col} controlId="formGridEmail">
             <FloatingLabel controlId="floatingInput" label="Ratings">
               <Form.Select
@@ -141,9 +176,15 @@ const AddNewTour = () => {
                 <option value="4.5">4.5</option>
                 <option value="5">5</option>
               </Form.Select>
-              {errors.rating?.type === "required" && "Package is required"}
+              {errors.rating?.type === "required" && (
+                <small>Ratings is required.</small>
+              )}
             </FloatingLabel>
           </Form.Group>
+
+          {/* -------------------------------------------------------------------------- */
+          /*                             TOTAL REVIEW FIELD                             */
+          /* -------------------------------------------------------------------------- */}
           <Form.Group as={Col} controlId="formGridEmail">
             <FloatingLabel controlId="floatingInput" label="Total Reviews">
               <Form.Select
@@ -156,7 +197,9 @@ const AddNewTour = () => {
                 <option value="15">15</option>
                 <option value="20">20</option>
               </Form.Select>
-              {errors.reviews?.type === "required" && "Reviews is required"}
+              {errors.reviews?.type === "required" && (
+                <small>Review is required.</small>
+              )}
             </FloatingLabel>
           </Form.Group>
         </Row>

@@ -13,6 +13,9 @@ const AdminPanel = () => {
 
   return (
     <section className="admin-panel">
+      {/* -------------------------------------------------------------------------- */
+      /*                              SIDE ADMIN PANEL                              */
+      /* -------------------------------------------------------------------------- */}
       <aside>
         <h2 className="mb-4">
           <i className="fas fa-user-lock me-3"></i>
@@ -34,6 +37,9 @@ const AdminPanel = () => {
         </NavLink>
       </aside>
 
+      {/* -------------------------------------------------------------------------- */
+      /*                             ADMIN PANEL CONTENT                            */
+      /* -------------------------------------------------------------------------- */}
       <main className="content">
         <Route exact path="/admin">
           <AllOrders></AllOrders>

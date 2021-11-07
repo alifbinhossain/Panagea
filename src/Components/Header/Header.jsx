@@ -4,9 +4,28 @@ import logo from "../../assets/images/logo/logo_sticky_2x.png";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import useAll from "../../hooks/useAll";
+import Swal from "sweetalert2";
 
 const Header = () => {
   const { user, logOut } = useAll();
+
+  /* -------------------------------------------------------------------------- */
+  /*                        SIGN OUT BUTTON FUNCTIONALITY                       */
+  /* -------------------------------------------------------------------------- */
+  const handleLogOut = () => {
+    Swal.fire({
+      title: "Are you sure you want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut(true);
+      }
+    }); //log out confirmation checking popup
+  };
 
   const activeStyle = {
     color: "#fc5b62",
@@ -15,9 +34,8 @@ const Header = () => {
   };
 
   let userName;
-
   if (user?.displayName === "Admin") {
-    userName = "";
+    userName = null;
   } else {
     userName = user?.displayName;
   }
@@ -29,7 +47,9 @@ const Header = () => {
           <Navbar.Brand as={NavLink} to="/home">
             <img src={logo} alt="" />
           </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link activeStyle={activeStyle} as={NavLink} to="/home">
@@ -71,9 +91,9 @@ const Header = () => {
                   <Nav.Link>
                     {" "}
                     <i className="fas fa-user me-2"></i>{" "}
-                    {userName.split(" ")[0]}
+                    {userName?.split(" ")[0]}
                   </Nav.Link>
-                  <button className="btn-signout" onClick={logOut}>
+                  <button className="btn-signout" onClick={handleLogOut}>
                     <i className="fas fa-sign-out-alt"></i> Sign Out
                   </button>
                 </>

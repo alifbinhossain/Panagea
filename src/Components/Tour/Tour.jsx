@@ -24,11 +24,15 @@ const Tour = ({ tour }) => {
     history.push(url);
   };
   return (
-    <Card className="tour justify-content-between">
+    <Card className="tour justify-content-between" data-aos="zoom-in">
       <Card.Img variant="top" src={img} />
       <Card.Body className=" d-flex flex-column justify-content-between">
         <Card.Title className="title d-flex justify-content-between align-items-center">
           {name}
+
+          {/* -------------------------------------------------------------------------- */
+          /*                     SET STYLES DEPEND ON TOUR CATEGORY                     */
+          /* -------------------------------------------------------------------------- */}
           {category === "popular" && (
             <span className="popular-box">
               {category} <i className="fas fa-fire ms-2"></i>

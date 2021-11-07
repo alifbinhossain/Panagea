@@ -1,11 +1,10 @@
-.home {
-}
 .popular-tours {
   padding: 2rem 0 6rem;
   background-image: url(../../assets/images/others/h1-background-2.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  min-height: 150vh;
 }
 .popular-tours h1,
 .tours h1,

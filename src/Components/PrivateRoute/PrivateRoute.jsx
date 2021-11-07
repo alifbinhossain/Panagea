@@ -12,7 +12,8 @@ const PrivateRoute = ({ children, ...rest }) => {
         <PuffLoader color="#fc5b62" />
       </div>
     );
-  }
+  } //initial loading before getting user information
+
   return (
     <Route
       {...rest}

@@ -4,10 +4,11 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useAll from "../../../hooks/useAll";
 import { useHistory, useLocation } from "react-router";
+import popupSuccess from "../../../popup/popupSuccess";
+import popupError from "../../../popup/popupError";
 
 const Signin = () => {
   const {
-    setLoading,
     signInWithEmail,
     signInWithSocial,
     facebookProvider,
@@ -31,24 +32,31 @@ const Signin = () => {
     const userPassword = data.password;
     signInWithEmail(userEmail, userPassword)
       .then((result) => {
+        const isAdmin = "admin@gmail.com";
+        if (result._tokenResponse.email === isAdmin) {
+          popupSuccess("admin");
+        } else {
+          popupSuccess("login");
+        }
         reset();
         history.push(redirectUrl);
       })
       .catch((err) => {
-        console.log(err.message);
+        popupError(err.message);
       });
   };
 
   const handleSignInWithSocial = (provider) => {
     signInWithSocial(provider)
       .then((res) => {
+        popupSuccess("login");
         history.push(redirectUrl);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => popupError(err.message));
   };
 
   return (
-    <div className="form-signin">
+    <div className="form-signin" data-aos="fade-down">
       <h1 className="text-center">Sign In</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3" controlId="formGroupEmail">

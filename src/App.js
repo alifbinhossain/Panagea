@@ -1,5 +1,12 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AOS from "aos";
 import "./App.css";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+/* -------------------------------------------------------------------------- */
+/*                        IMPORTING COMPONENTS & PAGES                        */
+/* -------------------------------------------------------------------------- */
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
@@ -15,6 +22,15 @@ import MyOrders from "./Pages/MyOrders/MyOrders";
 import Tours from "./Pages/Tours/Tours";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      offset: 120,
+      delay: 100,
+      duration: 900,
+      easing: "ease",
+    });
+  });
+
   return (
     <AuthProvider>
       <main className="main">
@@ -29,7 +45,7 @@ function App() {
             <Route exact path="/tours" component={Tours}></Route>
 
             {/* -------------------------------------------------------------------------- */
-            /*                                PRIVATE ROUTE                               */
+            /*                                PRIVATE ROUTES                               */
             /* -------------------------------------------------------------------------- */}
             <PrivateRoute exact path="/tour/booking/:id">
               <Booking></Booking>
@@ -44,7 +60,7 @@ function App() {
             </PrivateRoute>
 
             {/* -------------------------------------------------------------------------- */
-            /*                            AUTHENTICATION ROUTE                            */
+            /*                            AUTHENTICATION ROUTES                            */
             /* -------------------------------------------------------------------------- */}
             <Route exact path="/form/signin">
               <Form>
@@ -57,6 +73,9 @@ function App() {
               </Form>
             </Route>
 
+            {/* -------------------------------------------------------------------------- */
+            /*                                  404 PAGE                                  */
+            /* -------------------------------------------------------------------------- */}
             <Route path="*">
               <NotFound></NotFound>
             </Route>

@@ -14,6 +14,8 @@ import {
   signOut,
 } from "firebase/auth";
 import { useEffect } from "react";
+import popupSuccess from "../popup/popupSuccess";
+import popupError from "../popup/popupError";
 
 initAuthentication();
 
@@ -38,7 +40,9 @@ const useFirebase = () => {
       displayName: name,
     })
       .then(() => {})
-      .catch((err) => {});
+      .catch((err) => {
+        popupError(err.message);
+      });
   };
 
   /* -------------------------------------------------------------------------- */
@@ -50,8 +54,13 @@ const useFirebase = () => {
       .then((result) => {
         updateUserInfo(name);
         setUser(result.user);
+        window.location.pathname = "/form/signin";
+        logOut(false);
+        popupSuccess("new");
       })
-      .catch((err) => {});
+      .catch((err) => {
+        popupError(err.message);
+      });
 
     setLoading(false);
   };
@@ -72,10 +81,14 @@ const useFirebase = () => {
   /* -------------------------------------------------------------------------- */
   /*                                 USER LOGOUT                                */
   /* -------------------------------------------------------------------------- */
-  const logOut = () => {
+  const logOut = (isfalse) => {
     signOut(auth)
-      .then(() => {})
-      .catch((err) => {});
+      .then(() => {
+        popupSuccess("logout", isfalse);
+      })
+      .catch((err) => {
+        popupError(err.message);
+      });
   };
 
   /* -------------------------------------------------------------------------- */
@@ -98,6 +111,7 @@ const useFirebase = () => {
 
   return {
     user,
+    setUser,
     loading,
     setLoading,
     createNewAccount,

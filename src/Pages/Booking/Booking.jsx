@@ -7,6 +7,7 @@ import { useParams } from "react-router";
 import Rating from "react-rating";
 import { useForm } from "react-hook-form";
 import useAll from "../../hooks/useAll";
+import popupSuccess from "../../popup/popupSuccess";
 
 const Booking = () => {
   const [tour, setTour] = useState({});
@@ -18,7 +19,7 @@ const Booking = () => {
       .get(`https://shrieking-corpse-81438.herokuapp.com/tour/${id}`)
       .then((data) => setTour(data.data))
       .catch((err) => err.message);
-  }, []);
+  }, []); //get current tour information
 
   const {
     register,
@@ -29,8 +30,8 @@ const Booking = () => {
 
   const onSubmit = (data) => {
     const orderInfo = {
-      name: data.name,
-      email: data.email,
+      name: user?.name || data.name,
+      email: user?.email || data.email,
       address: data.address,
       date: data.date,
       status: "pending",
@@ -45,16 +46,14 @@ const Booking = () => {
       .then((data) => {
         const isPlaced = data.data.insertedId;
         if (isPlaced) {
-          alert(`You’re booked! Pack your bags – see you soon..`);
+          popupSuccess("booked");
           reset();
         }
       });
-
-    console.log(orderInfo);
-  };
+  }; //post a booking request & received response
 
   return (
-    <section className="booking">
+    <section className="booking" data-aos="fade-in">
       {tour.name && (
         <div className="booking-content mt-5">
           <div className="booking-tour">

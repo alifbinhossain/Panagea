@@ -1,7 +1,6 @@
 import React from "react";
 import "./Home.css";
 import Banner from "../../Components/Banner/Banner";
-import world from "../../assets/images/others/world.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -25,7 +24,7 @@ const Home = () => {
           setLoading(false);
         });
     }, 1500);
-  }, []);
+  }, []); //get add popular tours from DB
 
   return (
     <div className="home">
@@ -38,7 +37,7 @@ const Home = () => {
             <PuffLoader color="#fc5b62" />
           </div>
         ) : (
-          <div className="container">
+          <div className="container mt-4">
             <Row xs={1} md={2} lg={3} className="g-lg-5 g-4">
               {tours.map((tour) => (
                 <Col key={tour._id}>
@@ -49,6 +48,7 @@ const Home = () => {
           </div>
         )}
       </section>
+
       <TopReviews></TopReviews>
       <Statistics></Statistics>
     </div>

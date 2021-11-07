@@ -4,9 +4,12 @@ import MyOrderList from "../../Components/MyOrderList/MyOrderList";
 import useAll from "../../hooks/useAll";
 import "./MyOrders.css";
 import img from "../../assets/images/others/no-order.svg";
+import popupSuccess from "../../popup/popupSuccess";
+import Swal from "sweetalert2";
 
 const MyOrders = () => {
   const { user } = useAll();
+  console.log(user);
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
@@ -17,48 +20,56 @@ const MyOrders = () => {
       .then((data) => {
         setMyOrders(data.data);
       });
-  }, []);
+  }, []); //get current user placed orders..
 
   const name = myOrders[0]?.name;
   const email = myOrders[0]?.email;
   const address = myOrders[0]?.address;
 
+  /* -------------------------------------------------------------------------- */
+  /*                         DELETE A ORDER FUNCTIONALITY                        */
+  /* -------------------------------------------------------------------------- */
   const handleOrderDelete = (id) => {
-    const proceed = window.confirm(
-      "Are you sure? You want to remove this order!"
-    );
+    Swal.fire({
+      title: "Do you want to cancel this order?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `https://shrieking-corpse-81438.herokuapp.com/my_order_list/${id}`
+          )
+          .then((data) => {
+            console.log(data);
+            const isDeleted = data.data.deletedCount;
 
-    if (proceed) {
-      axios
-        .delete(
-          `https://shrieking-corpse-81438.herokuapp.com/my_order_list/${id}`
-        )
-        .then((data) => {
-          console.log(data);
-          const isDeleted = data.data.deletedCount;
-
-          if (isDeleted) {
-            alert("Successfully removed this order");
-            const remaining = myOrders.filter((order) => order._id !== id);
-            setMyOrders(remaining);
-          }
-        });
-    }
+            if (isDeleted) {
+              popupSuccess("removed");
+              const remaining = myOrders.filter((order) => order._id !== id);
+              setMyOrders(remaining);
+            }
+          });
+      }
+    });
   };
 
   return (
-    <section className="my-orders">
+    <section className="my-orders" data-aos="fade-in">
       {myOrders.length ? (
         <>
           <div className="user-orders">
             <h1 className="text-center mb-4"> My Orders</h1>
-            <div className="user-info d-lg-flex align-items-center ">
+            <div className="user-info d-lg-flex align-items-center">
               <h4>Name : {name}</h4>
               <h4>Email : {email}</h4>
               <h4>Address : {address}</h4>
               <h4> Total Orders : {myOrders.length}</h4>
             </div>
-            <ul>
+            <ul data-aos="fade-up">
               {myOrders.map((order) => (
                 <MyOrderList
                   key={order._id}

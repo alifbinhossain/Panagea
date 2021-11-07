@@ -9,7 +9,7 @@ import user3 from "../../assets/images/others/user-3.jpg";
 
 const TopReviews = () => {
   return (
-    <section className="top-reviews">
+    <section className="top-reviews" data-aos="fade-up" data-aos-offset="200">
       <div className="review-banner">
         <img src={banner} alt="" />
       </div>
@@ -21,6 +21,9 @@ const TopReviews = () => {
           controls={false}
           className="review-carousel"
         >
+          {/* -------------------------------------------------------------------------- */
+          /*                                  REVIEW 1                                  */
+          /* -------------------------------------------------------------------------- */}
           <Carousel.Item className="review-carousel-item">
             <div className="content">
               <h4>Highlight Rome</h4>
@@ -43,6 +46,10 @@ const TopReviews = () => {
               <img src={user1} alt="" />
             </div>
           </Carousel.Item>
+
+          {/* -------------------------------------------------------------------------- */
+          /*                                  REVIEW 2                                  */
+          /* -------------------------------------------------------------------------- */}
           <Carousel.Item className="review-carousel-item">
             <div className="content">
               <h4>Discover Brasil</h4>
@@ -63,6 +70,10 @@ const TopReviews = () => {
               <img src={user2} alt="" />
             </div>
           </Carousel.Item>
+
+          {/* -------------------------------------------------------------------------- */
+          /*                                  REVIEW 3                                  */
+          /* -------------------------------------------------------------------------- */}
           <Carousel.Item className="review-carousel-item">
             <div className="content">
               <h4>Explore Bangladesh</h4>

@@ -2,12 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Switch from "react-switch";
 import "./AllOrderItem.css";
+import Swal from "sweetalert2";
+import popupSuccess from "../../popup/popupSuccess";
 
 const AllOrderItem = ({ order, index, handleOrderDelete }) => {
   const { email, date, tour, status, _id } = order;
   const { name } = tour;
-
-  console.log(index);
   const [checked, setChecked] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(status);
 
@@ -18,30 +18,44 @@ const AllOrderItem = ({ order, index, handleOrderDelete }) => {
       setChecked(false);
     }
   }, []);
-  const handleUpdateStatus = () => {
-    setChecked(!checked);
-    if (!checked) {
-      order.status = "confirm";
-    } else {
-      order.status = "pending";
-    }
 
-    axios
-      .put(
-        `https://shrieking-corpse-81438.herokuapp.com/all_orders/${_id}`,
-        order
-      )
-      .then((data) => {
-        const isUpdated = data.data.modifiedCount;
-        if (isUpdated) {
-          alert("Order status updated successfully..");
-          setCurrentStatus(order.status);
+  /* -------------------------------------------------------------------------- */
+  /*                     UPDATE A ORDER STATUS FUNCTIONALITY                    */
+  /* -------------------------------------------------------------------------- */
+  const handleUpdateStatus = () => {
+    Swal.fire({
+      title: "Do you want to change this order status?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setChecked(!checked);
+        if (!checked) {
+          order.status = "confirm";
+        } else {
+          order.status = "pending";
         }
-      });
+        axios
+          .put(
+            `https://shrieking-corpse-81438.herokuapp.com/all_orders/${_id}`,
+            order
+          )
+          .then((data) => {
+            const isUpdated = data.data.modifiedCount;
+            if (isUpdated) {
+              popupSuccess("status");
+              setCurrentStatus(order.status);
+            }
+          });
+      }
+    });
   };
 
   return (
-    <li className="all-order-item">
+    <li className="all-order-item" data-aos="fade-in" data-aos-offset="20">
       <h5>
         {" "}
         {index + 1} . {name}

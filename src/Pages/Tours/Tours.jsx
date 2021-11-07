@@ -21,7 +21,8 @@ const Tours = () => {
           setLoading(false);
         });
     }, 1500);
-  }, []);
+  }, []); //get all tours from dB
+
   return (
     <section className="tours">
       <h1 className="text-center">All Tours</h1>
@@ -31,7 +32,7 @@ const Tours = () => {
           <PuffLoader color="#fc5b62" />
         </div>
       ) : (
-        <div className="container">
+        <div className="container mt-3">
           <Row xs={1} md={2} lg={3} className="g-4">
             {tours.map((tour) => (
               <Col key={tour._id}>

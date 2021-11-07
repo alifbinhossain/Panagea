@@ -12,7 +12,10 @@ const Admin = () => {
   //Admin@123
 
   return (
-    <section className="admin">
+    <section className="admin" data-aos="fade-in">
+      {/* -------------------------------------------------------------------------- */
+      /*                        CHECK IF ADMIN LOG IN OR NOT                        */
+      /* -------------------------------------------------------------------------- */}
       {email === "admin@gmail.com" ? (
         <AdminPanel></AdminPanel>
       ) : (

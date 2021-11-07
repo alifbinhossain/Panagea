@@ -2,6 +2,8 @@ import axios from "axios";
 import "./AllOrders.css";
 import React, { useEffect, useState } from "react";
 import AllOrderItem from "../AllOrderItem/AllOrderItem";
+import Swal from "sweetalert2";
+import popupSuccess from "../../popup/popupSuccess";
 
 const AllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
@@ -10,33 +12,41 @@ const AllOrders = () => {
     axios
       .get("https://shrieking-corpse-81438.herokuapp.com/all_orders")
       .then((data) => setAllOrders(data.data));
-  }, []);
+  }, []); //get all orders from DB
 
+  /* -------------------------------------------------------------------------- */
+  /*                        DELETE A ORDER FUNCTIONALITY                       */
+  /* -------------------------------------------------------------------------- */
   const handleOrderDelete = (id) => {
-    const proceed = window.confirm(
-      "Are you sure? You want to remove this order!"
-    );
+    Swal.fire({
+      title: "Do you want to delete this order?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `https://shrieking-corpse-81438.herokuapp.com/my_order_list/${id}`
+          )
+          .then((data) => {
+            console.log(data);
+            const isDeleted = data.data.deletedCount;
 
-    if (proceed) {
-      axios
-        .delete(
-          `https://shrieking-corpse-81438.herokuapp.com/my_order_list/${id}`
-        )
-        .then((data) => {
-          console.log(data);
-          const isDeleted = data.data.deletedCount;
-
-          if (isDeleted) {
-            alert("Successfully removed this order");
-            const remaining = allOrders.filter((order) => order._id !== id);
-            setAllOrders(remaining);
-          }
-        });
-    }
+            if (isDeleted) {
+              popupSuccess("removed");
+              const remaining = allOrders.filter((order) => order._id !== id);
+              setAllOrders(remaining);
+            }
+          });
+      }
+    });
   };
 
   return (
-    <ul className="all-orders">
+    <ul className="all-orders" data-aos="fade-up">
       <h1>All Orders</h1>
       {allOrders.map((order, index) => (
         <AllOrderItem
